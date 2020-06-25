@@ -1,4 +1,4 @@
-# React - Authentication - Async REST request
+# Docker React - Authentication - Async REST request
 
 > React components to build a single page application.
 
@@ -87,3 +87,25 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Docker
+
+### Build client and push image
+
+- to upload an image, change the tag to start with username/imagename
+- login to docker hub
+
+```
+docker-compose build webclient
+
+docker-compose push webclient
+```
+
+### Build - run docker image for development server
+
+- remove -d to stay hooked in the console
+
+```
+docker-compose build
+docker-compose up -d
+```

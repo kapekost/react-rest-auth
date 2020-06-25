@@ -1,0 +1,12 @@
+# build environment
+FROM node:13.12.0-alpine as build
+WORKDIR /app
+ENV NODE_ENV="production"
+ENV CI=false
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package*.json ./
+RUN yarn install --frozen-lockfile
+
+COPY . ./
+
+CMD ["yarn", "build"]
