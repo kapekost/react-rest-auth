@@ -1,4 +1,4 @@
-# Docker React - Authentication - Async REST request
+# Docker - React - Authentication - Async REST request
 
 > React components to build a single page application.
 
