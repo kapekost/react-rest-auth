@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "mocha": "^8.0.1",
     "moment": "^2.27.0",
+    "mongodb": "^3.5.9",
     "restify": "^8.5.1",
     "restify-clients": "^2.6.9",
     "restify-cors-middleware": "^1.1.1"
