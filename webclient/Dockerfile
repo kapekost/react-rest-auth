@@ -12,7 +12,5 @@ COPY package*.json ./
 RUN yarn install --frozen-lockfile
 # add app
 COPY . ./
-
-RUN yarn build:staging
 # start app
 CMD ["yarn", "start"]

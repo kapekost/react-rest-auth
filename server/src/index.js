@@ -5,7 +5,7 @@ const Storage = require("./storage");
 const corsMiddleware = require("restify-cors-middleware");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({
-    path: "./env/env.local",
+    path: "./env.local",
   });
 }
 console.log("env ", process.env.NODE_ENV);
