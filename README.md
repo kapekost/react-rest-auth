@@ -13,6 +13,7 @@ There is a basic setup for 2 projects,
 
 - ReactJS app
 - NodeJS server
+- Mongo DB
 
 Each project has a Dockerfile to start in development mode hooking to your local files for live editing and refresh
 A main docker-compose file starts both, and a production version that copies the react built project under the /public serve directory of the server

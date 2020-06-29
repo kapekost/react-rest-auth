@@ -1,6 +1,16 @@
 version: "3.7"
 
 services:
+  mongodb_container:
+    image: mongo:latest
+    env_file:
+      - ./server/env.development
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+    networks:
+      - app-network
   webclient:
     container_name: webclient
     image: webclient
@@ -27,3 +37,14 @@ services:
     ports:
       - 8080:8080
       - 12345:12345
+    networks:
+      - app-network
+    depends_on:
+      - mongodb_container
+
+volumes:
+  mongodb_data_container:
+
+networks:
+  app-network:
+    driver: bridge
