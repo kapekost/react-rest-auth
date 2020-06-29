@@ -6,9 +6,10 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 
 import loginReducer from "../pages/login/loginReducer";
 import documentsReducer from "../pages/documents/documentsReducer";
+import homeReducer from "../pages/home/homeReducer";
 
 import Navbar from "../navbar";
-import { Typography, Divider, CssBaseline } from "@material-ui/core";
+import { Typography, Container, Divider, CssBaseline } from "@material-ui/core";
 
 import AuthRoute from "../authRoute";
 
@@ -26,12 +27,10 @@ const createStoreWithMiddleware = applyMiddleware(
 )(createStore);
 const rootReducer = combineReducers({
   loginStore: loginReducer,
+  homeStore: homeReducer,
   documentsStore: documentsReducer,
 });
-// const store = createStoreWithMiddleware(
-//   rootReducer,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
+
 const store = createStoreWithMiddleware(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -45,15 +44,16 @@ const IndexPage = () => (
   </>
 );
 
-function App() {
+export default () => {
   return (
     <CssBaseline>
       <Provider store={store}>
-        <Router>
-          <Navbar />
-          <div className="container">
+        <Router basename={process.env.PUBLIC_URL}>
+          <Container style={{ padding: 22 }}>
             <Switch>
-              <AuthRoute path="/home" render={HomePage} type="private" />
+              <AuthRoute path="/home" type="private">
+                <HomePage />
+              </AuthRoute>
               <AuthRoute path="/login" type="guest">
                 <LoginPage />
               </AuthRoute>
@@ -65,11 +65,10 @@ function App() {
               </AuthRoute>
               <Route path="/" render={IndexPage} />
             </Switch>
-          </div>
+          </Container>
+          <Navbar />
         </Router>
       </Provider>
     </CssBaseline>
   );
-}
-
-export default App;
+};

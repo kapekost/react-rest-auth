@@ -1,4 +1,9 @@
-import { API_SUCCESS, API_ERROR } from "../../../actions/api";
+import {
+  GET_DOCUMENT_SUCCESS,
+  ADD_DOCUMENT_SUCCESS,
+  RECEIVE_DOCUMENT_SUCCESS,
+  API_ERROR,
+} from "../../../actions/api";
 
 export default (
   state = {
@@ -7,7 +12,11 @@ export default (
   action
 ) => {
   switch (action.type) {
-    case API_SUCCESS:
+    case ADD_DOCUMENT_SUCCESS:
+      return { ...state };
+    case RECEIVE_DOCUMENT_SUCCESS:
+      return { ...state };
+    case GET_DOCUMENT_SUCCESS:
       return { ...state, documentsList: action.payload };
     case API_ERROR:
       return { ...state, error: action.error };

@@ -3,7 +3,7 @@ version: "3.7"
 services:
   webclient:
     container_name: webclient
-    image: webconcierge-client
+    image: webclient
     build:
       context: ./webclient
       dockerfile: Dockerfile

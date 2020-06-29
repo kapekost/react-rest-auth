@@ -1,5 +1,3 @@
-/**
- * Since the utilities folder will be imported via JavaScript, it should contain an index.js file that re-exports its siblings
- */
-
-export default utils=()=>{};
+export const config = {
+  SERVER_URL: process.env.REACT_APP_API_URL,
+};

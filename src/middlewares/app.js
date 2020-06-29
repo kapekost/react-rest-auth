@@ -3,8 +3,9 @@ import { GET_DOCUMENTS } from "../actions/documents";
 import { apiRequest, loginRequest, cancelApiRequest } from "../actions/api";
 import { setLoader } from "../actions/ui";
 import { LOGIN } from "../actions/auth";
+import { config } from "../utils";
 
-const SERVER_URL = `http://localhost:8080`;
+const SERVER_URL = config.SERVER_URL;
 
 const PIXABAY_KEY = "14545036-912e59631b7d8e4d4ebbffc6a";
 
