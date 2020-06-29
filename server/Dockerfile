@@ -10,4 +10,4 @@ RUN npm install -g nodemon
 RUN yarn install  --frozen-lockfile
 COPY . ./
 
-CMD ["nodemon", "webconcierge", "--inspect-port=\"12345\"","--inspect"]
+CMD ["nodemon", "src/index", "--inspect-port=\"12345\"","--inspect"]

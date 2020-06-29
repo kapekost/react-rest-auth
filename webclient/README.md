@@ -15,30 +15,18 @@ based on:
 - Authentication scope
 - Function component
 - Hooks
+- Middleware implementation
 - Cancel request
 
 ---
+
 ## Docker
 
+The project includes a Dockerfile to start the server in a container.
+
+You can use the docker-compose.yml in the parent directory of this project, to start a live editing environment using this Docker file
+
 ### Build client and push image
-
-- to upload an image, change the tag to start with username/imagename
-- login to docker hub
-
-```
-docker-compose build webclient
-
-docker-compose push webclient
-```
-
-### Build - run docker image for development server
-
-- remove -d to stay hooked in the console
-
-```
-docker-compose build
-docker-compose up -d
-```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

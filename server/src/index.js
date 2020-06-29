@@ -5,7 +5,7 @@ const Storage = require("./storage");
 const corsMiddleware = require("restify-cors-middleware");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({
-    path: "./env.local",
+    path: "./env.development",
   });
 }
 console.log("env ", process.env.NODE_ENV);
@@ -47,9 +47,10 @@ const serverRoutes = new ServerRoutes(server, restify, storage);
 
 serverRoutes.attachBaseRoutes();
 server.get(
-  "/*",
+  "/public/*",
   restify.plugins.serveStatic({
-    directory: path.resolve(__dirname, "../public/index.html"),
+    directory: path.resolve(__dirname, "../"),
+    default: "index.html",
   })
 );
 
@@ -57,6 +58,7 @@ server.get(
   "/docs/*",
   restify.plugins.serveStatic({
     directory: path.resolve(__dirname, "../docs"),
+    default: "index.html",
   })
 );
 

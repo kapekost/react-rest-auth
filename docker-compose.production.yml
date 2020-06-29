@@ -5,7 +5,7 @@ services:
     container_name: reactproject
     image: reactproject:production
     env_file:
-      - ./server/env/env.production
+      - ./server/env.production
     environment:
       - NODE_ENV=production
     build:
