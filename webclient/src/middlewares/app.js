@@ -20,6 +20,7 @@ export const appMiddleware = () => (next) => (action) => {
           url: `${SERVER_URL}/login`,
           method: "POST",
           data: action.payload,
+          actionReqType: action.type,
         })
       );
       break;
@@ -29,6 +30,7 @@ export const appMiddleware = () => (next) => (action) => {
         apiRequest({
           url: `${SERVER_URL}/documents`,
           method: "GET",
+          actionReqType: action.type,
         })
       );
       break;
@@ -39,6 +41,7 @@ export const appMiddleware = () => (next) => (action) => {
         apiRequest({
           url: `${PIXABAY_URL}&q=${action.payload}`,
           method: "GET",
+          actionReqType: action.type,
         })
       );
       next(setLoader({ state: true }));
