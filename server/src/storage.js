@@ -24,7 +24,7 @@ module.exports = class Storage {
       .then(() => {
         this.db = this.client.db(this.config.MONGO_INITDB_DATABASE);
         console.log("mongo client connected");
-        // this.initData();
+        this.initData();
       })
       .catch((err) => {
         console.log(err);
@@ -40,11 +40,27 @@ module.exports = class Storage {
     return { user: "username" };
   }
 
-  // initData() {
-  //   this.db.collection("questions").insertOne({
-  //     title: "Your email address?",
-  //     type: "text",
-  //   });
-  //   this.db.collection("users");
-  // }
+  initData() {
+    this.db.listCollections().toArray((err, info) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      // collInfos is an array of collection info objects that look like:
+      // { name: 'test', options: {} }
+      console.log("collections", info.length);
+      if (info.length === 0) {
+        this.seedData();
+      }
+    });
+    //   this.db.collection("documents").insertOne({
+    //     title: "doc title?",
+    //     payload: "text",
+    //   });
+    //   this.db.collection("users");
+  }
+  seedData() {
+    console.log("seeding data");
+  }
+};
 };
