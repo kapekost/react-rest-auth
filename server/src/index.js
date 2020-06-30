@@ -3,12 +3,12 @@ const restify = require("restify");
 const Storage = require("./storage");
 
 const corsMiddleware = require("restify-cors-middleware");
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV) {
   require("dotenv").config({
-    path: "./env.development",
+    path: `./.env.${process.env.NODE_ENV}`,
   });
+  console.log("env ", process.env.NODE_ENV);
 }
-console.log("env ", process.env.NODE_ENV);
 const storage = new Storage();
 
 const ServerRoutes = require("./serverRoutes");

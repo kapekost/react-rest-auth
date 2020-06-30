@@ -31,13 +31,13 @@ module.exports = class Storage {
       });
   }
 
-  getDocument(data) {
+  getDocuments(data) {
     console.log(data);
-    return { doc: "doc data" };
+    return this.db.collection("documents").find().toArray();
   }
-  getUser(data) {
+  getUsers(data) {
     console.log(data);
-    return { user: "username" };
+    return this.db.collection("users").find().toArray();
   }
 
   initData() {
