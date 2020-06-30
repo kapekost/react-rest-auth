@@ -17,10 +17,21 @@ export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
     method,
     url,
     data,
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-version": "1.0.0",
+      // Authorization: "JWT token...",
+    },
     cancelToken: source.token,
   })
     .then(({ data }) =>
-      dispatch(apiSuccess({ response: data, type: action.type }))
+      dispatch(
+        apiSuccess({
+          response: data,
+          type: action.type,
+          actionReqType: action .act ionReqType,
+        })
+      )
     )
     .catch((error) => {
       console.log(error);
