@@ -29,7 +29,7 @@ export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
         apiSuccess({
           response: data,
           type: action.type,
-          actionReqType: action .act ionReqType,
+          actionReqType: action.actionReqType,
         })
       )
     )
