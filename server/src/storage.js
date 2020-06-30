@@ -63,4 +63,3 @@ module.exports = class Storage {
     console.log("seeding data");
   }
 };
-};
