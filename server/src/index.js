@@ -8,6 +8,11 @@ if (process.env.NODE_ENV) {
     path: `./.env.${process.env.NODE_ENV}`,
   });
   console.log("env ", process.env.NODE_ENV);
+} else {
+  console.log("env local");
+  require("dotenv").config({
+    path: `./.env.local`,
+  });
 }
 const storage = new Storage();
 

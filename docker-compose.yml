@@ -5,7 +5,7 @@ services:
     image: mongo:latest
     container_name: mongodbcontainer
     env_file:
-      - ./server/env.development
+      - ./server/.env.development
     ports:
       - 27017:27017
     volumes:
