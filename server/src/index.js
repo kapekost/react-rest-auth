@@ -7,6 +7,12 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({
     path: "./env.development",
   });
+  console.log("env ", process.env.NODE_ENV);
+} else {
+  console.log("env local");
+  require("dotenv").config({
+    path: `./.env.local`,
+  });
 }
 console.log("env ", process.env.NODE_ENV);
 const storage = new Storage();
