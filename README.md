@@ -1,4 +1,4 @@
-# react-rest-auth - in docker with NodeJS service
+# React-REST-Auth - in Docker with NodeJS service
 
 A template project to start a fast PoC
 
