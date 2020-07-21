@@ -50,7 +50,7 @@ export default () => {
       value={selectedMenu}
       onChange={(event, newValue) => {
         setSelectedMenu(newValue);
-        if (selectedMenu === "logout") {
+        if (newValue === "logout") {
           dispatch(logout());
         }
       }}
