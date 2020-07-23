@@ -1,5 +1,5 @@
 import { LOGIN_SUCCESS, API_ERROR } from "../../../actions/api";
-import { LOGOUT } from "../../../actions/auth";
+import { LOGOUT, FORM_ERROR } from "../../../actions/login";
 import { SET_LOADER } from "../../../actions/ui";
 
 export default (
@@ -20,6 +20,8 @@ export default (
         localStorage.setItem("user", JSON.stringify(action.payload.user));
       return { ...state, isAuthUser: true, user: action.payload.user };
     case API_ERROR:
+      return { ...state, error: action.error };
+    case FORM_ERROR:
       return { ...state, error: action.error };
     case SET_LOADER:
       return { ...state, isLoading: action.isLoading };

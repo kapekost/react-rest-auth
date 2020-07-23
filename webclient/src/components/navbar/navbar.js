@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import { AccountCircleOutlined, LockOpen, Lock } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { logout } from "../../actions/auth";
+import { logout } from "../../actions/login";
 
 const useStyles = makeStyles((theme) => ({
   stickToBottom: {

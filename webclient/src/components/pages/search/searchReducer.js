@@ -1,5 +1,5 @@
 import { API_SUCCESS, API_ERROR } from "../../../actions/api";
-import { LOGOUT } from "../../../actions/auth";
+import { LOGOUT } from "../../../actions/login";
 import { SET_LOADER } from "../../../actions/ui";
 
 export default (

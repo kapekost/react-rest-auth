@@ -1,24 +1,28 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { TextField, Typography, Button } from "@material-ui/core";
-import { connect } from "react-redux";
-import { login } from "../../../actions/auth";
+import { login, formError } from "../../../actions/login";
 import MuiAlert from "@material-ui/lab/Alert";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export default connect(null, { login })((props) => {
+export default () => {
+  const state = useSelector((state) => state.loginStore);
+  const dispatch = useDispatch();
+  const isAuthUser = state.isAuthUser;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const submitForm = () => {
     if (email === "" || password === "") {
-      setError("Fields are required");
+      dispatch(formError("Fields are required"));
       return;
     }
-    props.login({ email, password });
+    dispatch(login({ email, password }));
   };
 
   return (
@@ -53,12 +57,13 @@ export default connect(null, { login })((props) => {
       >
         Login
       </Button>
-
-      {error && (
-        <Alert severity="error" onClick={() => setError(null)}>
-          {props.error || error}
+      {state.error ? (
+        <Alert severity="error" onClick={() => dispatch(formError(null))}>
+          {state.error}
         </Alert>
+      ) : (
+        ""
       )}
     </form>
   );
-});
+};

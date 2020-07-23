@@ -2,7 +2,7 @@ import { SEARCH, CANCEL_SEARCH } from "../actions/search";
 import { GET_DOCUMENTS } from "../actions/documents";
 import { apiRequest, loginRequest, cancelApiRequest } from "../actions/api";
 import { setLoader } from "../actions/ui";
-import { LOGIN } from "../actions/auth";
+import { LOGIN } from "../actions/login";
 import { config } from "../utils";
 
 const SERVER_URL = config.SERVER_URL;
